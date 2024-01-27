@@ -21,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
   // check if the user is logged in.
   const checkUserLoggedIn = async () => {
     try {
-      const res = await fetch(`http://localhost:7777/api/me`, {
+      const res = await fetch(`https://otica-backend-app.onrender.com/api/me`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
