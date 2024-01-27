@@ -71,9 +71,9 @@ const AllContact = () => {
   return (
     <>
       <div>
-        <h1>Your Contacts</h1>
+        <h1>Seus Clientes</h1>
         <a href="/mycontacts" className="btn btn-danger my-2">
-          Reload Contact
+          Recarregar contato
         </a>
         <hr className="my-4" />
         {loading ? (
@@ -81,7 +81,7 @@ const AllContact = () => {
         ) : (
           <>
             {contacts.length == 0 ? (
-              <h3>No contacts created yet</h3>
+              <h3>Sem contatos criados por enquanto</h3>
             ) : (
               <>
                 <form className="d-flex" onSubmit={handleSearchSubmit}>
@@ -90,25 +90,25 @@ const AllContact = () => {
                     name="searchInput"
                     id="searchInput"
                     className="form-control my-2"
-                    placeholder="Search Contact"
+                    placeholder="S"
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
                   />
                   <button type="submit" className="btn btn-info mx-2">
-                    Search
+                    Busca
                   </button>
                 </form>
 
                 <p>
-                  Your Total Contacts: <strong>{contacts.length}</strong>
+                  Total de contatos: <strong>{contacts.length}</strong>
                 </p>
                 <table className="table table-hover">
                   <thead>
                     <tr className="table-dark">
-                      <th scope="col">Name</th>
-                      <th scope="col">Address</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Endereço</th>
                       <th scope="col">Email</th>
-                      <th scope="col">Phone</th>
+                      <th scope="col">Telefone</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -143,19 +143,19 @@ const AllContact = () => {
         <Modal.Body>
           <h3>{modalData.name}</h3>
           <p>
-            <strong>Address</strong>: {modalData.address}
+            <strong>Endereço</strong>: {modalData.address}
           </p>
           <p>
             <strong>Email</strong>: {modalData.email}
           </p>
           <p>
-            <strong>Phone Number</strong>: {modalData.phone}
+            <strong>Telefone</strong>: {modalData.phone}
           </p>
         </Modal.Body>
 
         <Modal.Footer>
           <Link className="btn btn-info" to={`/edit/${modalData._id}`}>
-            Edit
+            Editar
           </Link>
           <button
             className="btn btn-danger"
@@ -167,7 +167,7 @@ const AllContact = () => {
             className="btn btn-warning"
             onClick={() => setShowModal(false)}
           >
-            Close
+            Fechar
           </button>
         </Modal.Footer>
       </Modal>

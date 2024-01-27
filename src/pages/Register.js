@@ -34,7 +34,7 @@ const Register = () => {
     }
 
     if (credentials.password !== credentials.confirmPassword) {
-      toast.error("password do not match!");
+      toast.error("senhas não são iguais!");
       return;
     }
 
@@ -44,12 +44,12 @@ const Register = () => {
 
   return (
     <>
-      <h3>Create your account</h3>
+      <h3>Crie sua conta</h3>
 
       <form onSubmit={handleSubmit}>
         <div class="form-group">
           <label for="nameInput" class="form-label mt-4">
-            Your Name
+            Nome
           </label>
           <input
             type="text"
@@ -64,7 +64,7 @@ const Register = () => {
         </div>
         <div class="form-group">
           <label for="emailInput" class="form-label mt-4">
-            Email address
+            Email
           </label>
           <input
             type="email"
@@ -80,7 +80,7 @@ const Register = () => {
         </div>
         <div class="form-group">
           <label for="passwordInput" class="form-label mt-4">
-            Password
+            Senha
           </label>
           <input
             type="password"
@@ -95,7 +95,7 @@ const Register = () => {
         </div>
         <div class="form-group">
           <label for="confirmPassword" class="form-label mt-4">
-            Confirm Password
+            Confirme a senha
           </label>
           <input
             type="password"
@@ -114,7 +114,7 @@ const Register = () => {
           className="btn btn-primary my-3"
         />
         <p>
-          Already have an account ? <Link to="/login">Login</Link>
+          Já tem uma conta ? <Link to="/login">Login</Link>
         </p>
       </form>
     </>

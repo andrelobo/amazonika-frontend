@@ -11,10 +11,10 @@ const Home = () => {
   return (
     <>
       <div className="jumbotron">
-        <h1>Welcome {user ? user.name : null}</h1>
+        <h1>Bemvindo {user ? user.name : null}</h1>
         <hr className="my-4" />
-        <a className="btn btn-info" href="#" role="button">
-          Add Contacts
+        <a className="btn btn-info" href="/create" role="button">
+          Adicionar Cliente
         </a>
       </div>
     </>

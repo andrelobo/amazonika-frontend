@@ -3,16 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import ToastContext from "../context/ToastContext";
 
-const Navbar = ({ title = "CMS" }) => {
+const Navbar = ({ title = "Óticas Amazônia" }) => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(AuthContext);
   const { toast } = useContext(ToastContext);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
         <Link to="/">
-          <a className="navbar-brand">{title}</a>
+        <a><img src="amazonia.png" alt="Logo" className="logo-img" /></a>
         </Link>
 
         <button
@@ -33,12 +33,12 @@ const Navbar = ({ title = "CMS" }) => {
               <>
                 <li className="nav-item">
                   <Link to="/mycontacts">
-                    <a className="nav-link">All Contacts</a>
+                    <a className="nav-link">Todos os Clientes</a>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/create">
-                    <a className="nav-link">Create</a>
+                    <a className="nav-link">Criar Cliente</a>
                   </Link>
                 </li>
                 <li
@@ -46,11 +46,11 @@ const Navbar = ({ title = "CMS" }) => {
                   onClick={() => {
                     setUser(null);
                     localStorage.clear();
-                    toast.success("Logged out.");
+                    toast.success("Saiu.");
                     navigate("/login", { replace: true });
                   }}
                 >
-                  <button className="btn btn-danger">Logout</button>
+                  <button className="btn btn-danger">Sair do app</button>
                 </li>
               </>
             ) : (
@@ -62,7 +62,7 @@ const Navbar = ({ title = "CMS" }) => {
                 </li>
                 <li className="nav-item">
                   <Link to="/register">
-                    <a className="nav-link">Register</a>
+                    <a className="nav-link">Registrar</a>
                   </Link>
                 </li>
               </>

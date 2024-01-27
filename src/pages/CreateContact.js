@@ -35,8 +35,8 @@ const CreateContact = () => {
 
     const result = await res.json();
     if (!result.error) {
-      toast.success(`Created [${userDetails.name}] contact`);
-      setUserDetails({ name: "", address: "", email: "", phone: "", city: "", price: "" });
+      toast.success(`Criado [${userDetails.name}] cliente`);
+      setUserDetails({ name: "", address: "", email: "", phone: "", city: "", price: "" , info: ""}); 
     } else {
       toast.error(result.error);
     }
@@ -44,11 +44,11 @@ const CreateContact = () => {
 
   return (
     <>
-      <h2>Create your contact</h2>
+      <h2>Crie seu contato</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="nameInput" className="form-label mt-4">
-            Name Of Person
+           Nome
           </label>
           <input
             type="text"
@@ -63,7 +63,7 @@ const CreateContact = () => {
         </div>
         <div className="form-group">
           <label htmlFor="addressInput" className="form-label mt-4">
-            Address Of Person
+            Endereço
           </label>
           <input
             type="text"
@@ -72,13 +72,13 @@ const CreateContact = () => {
             name="address"
             value={userDetails.address}
             onChange={handleInputChange}
-            placeholder="WalkStreet 05, California"
+            placeholder="Rua Gonçaves Dias"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="emailInput" className="form-label mt-4">
-            Email Of Person
+          Email
           </label>
           <input
             type="email"
@@ -87,13 +87,13 @@ const CreateContact = () => {
             name="email"
             value={userDetails.email}
             onChange={handleInputChange}
-            placeholder="johndoe@example.com"
+            placeholder="joao@example.com"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="phoneInput" className="form-label mt-4">
-            Phone Number Of Person
+            Telefone
           </label>
           <input
             type="number"
@@ -102,13 +102,13 @@ const CreateContact = () => {
             name="phone"
             value={userDetails.phone}
             onChange={handleInputChange}
-            placeholder="+977 987654321"
+            placeholder="92999999999"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="cityInput" className="form-label mt-4">
-            City
+            Cidade
           </label>
           <input
             type="text"
@@ -121,24 +121,25 @@ const CreateContact = () => {
             required
           />
         </div>
+
         <div className="form-group">
           <label htmlFor="priceInput" className="form-label mt-4">
-            Price
+            Preço
           </label>
           <input
-            type="number"
+            type="text"
             className="form-control"
             id="priceInput"
             name="price"
             value={userDetails.price}
             onChange={handleInputChange}
-            placeholder="100"
+            placeholder="0"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="infoInput" className="form-label mt-4">
-            Informaçoes
+            Informações
           </label>
           <input
             type="text"
@@ -147,13 +148,13 @@ const CreateContact = () => {
             name="info"
             value={userDetails.info}
             onChange={handleInputChange}
-            placeholder="100"
+            placeholder="Obs importantes sobre as parcelas, se houver"
             required
           />
         </div>
 
 
-        <input type="submit" value="Add Contact" className="btn btn-info my-2" />
+        <input type="submit" value="Adicionar" className="btn btn-info my-2" />
       </form>
     </>
   );

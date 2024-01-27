@@ -43,7 +43,15 @@ const EditContact = () => {
     if (!result.error) {
       toast.success(`updated [${userDetails.name}] contact`);
 
-      setUserDetails({ name: "", address: "", email: "", phone: "" , city: ""});
+      setUserDetails({
+        name: "",
+        address: "",
+        email: "",
+        phone: "",
+        city: "",
+        price: "",
+        info: "",
+      });
       navigate("/mycontacts");
     } else {
       toast.error(result.error);
@@ -66,6 +74,7 @@ const EditContact = () => {
         address: result.address,
         phone: result.phone,
         city: result.city,
+        price: result.price,
         info: result.info,
       });
       setLoading(false);
@@ -77,15 +86,15 @@ const EditContact = () => {
   return (
     <>
       {loading ? (
-        <Spinner splash="Loading Contact..." />
+        <Spinner splash="Carregando clientes..." />
       ) : (
         <>
-          <h2>Edit your contact</h2>
+          <h2></h2>
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="nameInput" className="form-label mt-4">
-                Name Of Person
+                Nome
               </label>
               <input
                 type="text"
@@ -100,7 +109,7 @@ const EditContact = () => {
             </div>
             <div className="form-group">
               <label htmlFor="addressInput" className="form-label mt-4">
-                Address Of Person
+                Endereço
               </label>
               <input
                 type="text"
@@ -115,7 +124,7 @@ const EditContact = () => {
             </div>
             <div className="form-group">
               <label htmlFor="emailInput" className="form-label mt-4">
-                Email Of Person
+                Email
               </label>
               <input
                 type="email"
@@ -130,7 +139,7 @@ const EditContact = () => {
             </div>
             <div className="form-group">
               <label htmlFor="phoneInput" className="form-label mt-4">
-                Phone Number Of Person
+                Telefone
               </label>
               <input
                 type="number"
@@ -146,7 +155,7 @@ const EditContact = () => {
 
             <div className="form-group">
               <label htmlFor="cityInput" className="form-label mt-4">
-                City
+                Cidade
               </label>
               <input
                 type="text"
@@ -159,39 +168,46 @@ const EditContact = () => {
                 required
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="priceInput" className="form-label mt-4">
-                Price
+                Preço
               </label>
               <input
-                type="Number"
+                type="number"
                 className="form-control"
                 id="priceInput"
                 name="price"
                 value={userDetails.price}
                 onChange={handleInputChange}
-                placeholder="100"
-                required  
-                
+                placeholder="1000"
+                required
               />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="infoInput" className="form-label mt-4">
+                Info
+              </label>
               <input
                 type="text"
                 className="form-control"
                 id="info"
                 name="info"
-                value={userDetails.price}
+                value={userDetails.info}
                 onChange={handleInputChange}
-                placeholder="Obs importantes sobe as parcelas se houver de "
-                required  
-                
+                placeholder="Obs importantes sobre as parcelas, se houver"
+                required
               />
-              <input
-              type="submit"
-              value="Save Changes"
-              className="btn btn-info my-2"
-             />  
-             </div>          
+            </div>
 
+            <div className="form-group">
+              <input
+                type="submit"
+                value="Save Changes"
+                className="btn btn-info my-2"
+              />
+            </div>
           </form>
         </>
       )}

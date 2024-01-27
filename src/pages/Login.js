@@ -37,7 +37,7 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="emailInput" className="form-label mt-4">
-            Email address
+            Email
           </label>
           <input
             type="email"
@@ -53,7 +53,7 @@ const Login = () => {
         </div>
         <div className="form-group">
           <label htmlFor="passwordInput" className="form-label mt-4">
-            Password
+            Senha
           </label>
           <input
             type="password"
@@ -68,7 +68,7 @@ const Login = () => {
         </div>
         <input type="submit" value="Login" className="btn btn-primary my-3" />
         <p>
-          Don't have an account ? <Link to="/register">Create One</Link>
+          Não tem conta  ? <Link to="/register">Crie uma</Link>
         </p>
       </form>
     </>

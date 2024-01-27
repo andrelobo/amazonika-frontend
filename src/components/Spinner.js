@@ -1,4 +1,4 @@
-const Spinner = ({ splash = "Loading..." }) => {
+const Spinner = ({ splash = "Carregando..." }) => {
   return (
     <div className="text-center mt-5">
       <div
