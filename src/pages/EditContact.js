@@ -51,6 +51,7 @@ const EditContact = () => {
         city: "",
         price: "",
         info: "",
+        date: "",
       });
       navigate("/mycontacts");
     } else {
@@ -76,6 +77,7 @@ const EditContact = () => {
         city: result.city,
         price: result.price,
         info: result.info,
+        date: result.date,
       });
       setLoading(false);
     } catch (err) {
@@ -151,7 +153,25 @@ const EditContact = () => {
                 placeholder="92985930954"
                 required
               />
-            </div>
+            </div> 
+
+
+
+            <div className="form-group">
+              <label htmlFor="dateInput" className="form-label mt-4">
+                Data de compra
+              </label>
+              <input
+                type="date"
+                className="form-control"
+                id="dateInput"
+                name="date"
+                value={userDetails.date}
+                onChange={handleInputChange}
+                placeholder="Data"
+                required
+              />
+              </div>
 
             <div className="form-group">
               <label htmlFor="cityInput" className="form-label mt-4">

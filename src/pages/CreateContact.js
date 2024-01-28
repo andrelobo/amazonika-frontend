@@ -12,7 +12,8 @@ const CreateContact = () => {
     phone: "",
     city: "",
     price: "", 
-    info:""// Adicionei a propriedade "price" aqui
+    info:"",// Adicionei a propriedade "price" aqui
+    date: ""
   });
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ const CreateContact = () => {
     const result = await res.json();
     if (!result.error) {
       toast.success(`Criado [${userDetails.name}] cliente`);
-      setUserDetails({ name: "", address: "", email: "", phone: "", city: "", price: "" , info: ""}); 
+      setUserDetails({ name: "", address: "", email: "", phone: "", city: "", price: "" , info: "" , date: "" }); 
     } else {
       toast.error(result.error);
     }
@@ -103,6 +104,20 @@ const CreateContact = () => {
             value={userDetails.phone}
             onChange={handleInputChange}
             placeholder="92999999999"
+            required
+          />
+        </div>
+      <div className="form-group">
+          <label htmlFor="dateInput" className="form-label mt-4">
+            Data de compra
+          </label>
+          <input
+            type="date"
+            className="form-control"
+            id="dateInput"
+            name="date"
+            value={userDetails.date}
+            onChange={handleInputChange}
             required
           />
         </div>
