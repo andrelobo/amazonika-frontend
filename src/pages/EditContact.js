@@ -19,12 +19,12 @@ const EditContact = () => {
     city: "",
     price: "",
     info: "",
+    date: "",
   });
   const [loading, setLoading] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-
     setUserDetails({ ...userDetails, [name]: value });
   };
 
@@ -41,8 +41,7 @@ const EditContact = () => {
     });
     const result = await res.json();
     if (!result.error) {
-      toast.success(`updated [${userDetails.name}] contact`);
-
+      toast.success(`Updated [${userDetails.name}] contact`);
       setUserDetails({
         name: "",
         address: "",
@@ -69,6 +68,11 @@ const EditContact = () => {
         },
       });
       const result = await res.json();
+  
+      // Convert ISODate to 'YYYY-MM-DD' format
+      const isoDate = result.date;
+      const formattedDate = isoDate ? new Date(isoDate).toISOString().split('T')[0] : '';
+  
       setUserDetails({
         name: result.name,
         email: result.email,
@@ -77,26 +81,27 @@ const EditContact = () => {
         city: result.city,
         price: result.price,
         info: result.info,
-        date: result.date,
+        date: formattedDate,
       });
       setLoading(false);
     } catch (err) {
       console.log(err);
     }
-  }, []);
+  }, [id]);
+  
 
   return (
-    <>
+    <div className="container">
       {loading ? (
-        <Spinner splash="Carregando clientes..." />
+        <Spinner splash="Loading clients..." />
       ) : (
         <>
-          <h2></h2>
+          <h2>Edit Contact</h2>
 
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="nameInput" className="form-label mt-4">
-                Nome
+            <div className="mb-3">
+              <label htmlFor="nameInput" className="form-label">
+                Name
               </label>
               <input
                 type="text"
@@ -105,13 +110,13 @@ const EditContact = () => {
                 name="name"
                 value={userDetails.name}
                 onChange={handleInputChange}
-                placeholder="John Doe"
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="addressInput" className="form-label mt-4">
-                Endereço
+
+            <div className="mb-3">
+              <label htmlFor="addressInput" className="form-label">
+                Address
               </label>
               <input
                 type="text"
@@ -120,12 +125,12 @@ const EditContact = () => {
                 name="address"
                 value={userDetails.address}
                 onChange={handleInputChange}
-                placeholder="WalkStreet 05, California"
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="emailInput" className="form-label mt-4">
+
+            <div className="mb-3">
+              <label htmlFor="emailInput" className="form-label">
                 Email
               </label>
               <input
@@ -135,13 +140,13 @@ const EditContact = () => {
                 name="email"
                 value={userDetails.email}
                 onChange={handleInputChange}
-                placeholder="johndoe@example.com"
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="phoneInput" className="form-label mt-4">
-                Telefone
+
+            <div className="mb-3">
+              <label htmlFor="phoneInput" className="form-label">
+                Phone
               </label>
               <input
                 type="number"
@@ -150,16 +155,13 @@ const EditContact = () => {
                 name="phone"
                 value={userDetails.phone}
                 onChange={handleInputChange}
-                placeholder="92985930954"
                 required
               />
-            </div> 
+            </div>
 
-
-
-            <div className="form-group">
-              <label htmlFor="dateInput" className="form-label mt-4">
-                Data de compra
+            <div className="mb-3">
+              <label htmlFor="dateInput" className="form-label">
+                Purchase Date
               </label>
               <input
                 type="date"
@@ -168,14 +170,13 @@ const EditContact = () => {
                 name="date"
                 value={userDetails.date}
                 onChange={handleInputChange}
-                placeholder="Data"
                 required
               />
-              </div>
+            </div>
 
-            <div className="form-group">
-              <label htmlFor="cityInput" className="form-label mt-4">
-                Cidade
+            <div className="mb-3">
+              <label htmlFor="cityInput" className="form-label">
+                City
               </label>
               <input
                 type="text"
@@ -184,14 +185,13 @@ const EditContact = () => {
                 name="city"
                 value={userDetails.city}
                 onChange={handleInputChange}
-                placeholder="Manaus"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="priceInput" className="form-label mt-4">
-                Preço
+            <div className="mb-3">
+              <label htmlFor="priceInput" className="form-label">
+                Price
               </label>
               <input
                 type="number"
@@ -200,38 +200,34 @@ const EditContact = () => {
                 name="price"
                 value={userDetails.price}
                 onChange={handleInputChange}
-                placeholder="1000"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <label htmlFor="infoInput" className="form-label mt-4">
+            <div className="mb-3">
+              <label htmlFor="infoInput" className="form-label">
                 Info
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="info"
+                id="infoInput"
                 name="info"
                 value={userDetails.info}
                 onChange={handleInputChange}
-                placeholder="Obs importantes sobre as parcelas, se houver"
                 required
               />
             </div>
 
-            <div className="form-group">
-              <input
-                type="submit"
-                value="Save Changes"
-                className="btn btn-info my-2"
-              />
+            <div className="mb-3">
+              <button type="submit" className="btn btn-info">
+                Save Changes
+              </button>
             </div>
           </form>
         </>
       )}
-    </>
+    </div>
   );
 };
 
