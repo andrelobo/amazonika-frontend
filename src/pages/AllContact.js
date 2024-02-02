@@ -36,7 +36,7 @@ const AllContact = () => {
   }, []);
 
   const deleteContact = async (id) => {
-    if (window.confirm("are you sure you want to delete this contact ?")) {
+    if (window.confirm("tem certeza que quer deletar esse contato?")) {
       try {
         const res = await fetch(`https://otica-backend-app.onrender.com/api/delete/${id}`, {
           method: "DELETE",
@@ -47,7 +47,7 @@ const AllContact = () => {
         const result = await res.json();
         if (!result.error) {
           setContacts(result.myContacts);
-          toast.success("Deleted contact");
+          toast.success("Contato Deletado");
           setShowModal(false);
         } else {
           toast.error(result.error);
@@ -106,8 +106,7 @@ const AllContact = () => {
                   <thead>
                     <tr className="table-dark">
                       <th scope="col">Nome</th>
-                      <th scope="col">Endereço</th>
-                      <th scope="col">Email</th>
+                      
                       <th scope="col">Telefone</th>
                     </tr>
                   </thead>
@@ -122,8 +121,7 @@ const AllContact = () => {
                         }}
                       >
                         <th scope="row">{contact.name}</th>
-                        <td>{contact.address}</td>
-                        <td>{contact.email}</td>
+                        
                         <td>{contact.phone}</td>
                       </tr>
                     ))}
