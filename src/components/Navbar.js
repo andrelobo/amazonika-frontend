@@ -12,7 +12,8 @@ const Navbar = ({ title = "Óticas Amazônia" }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
       <div className="container-fluid">
         <Link to="/">
-        <a><img src="amazonia.png" alt="Logo" className="logo-img" /></a>
+        <a><img src="papagaio.png" alt="Logo" className="logo-img" /></a>
+          <a className="navbar-brand">Ótica Amazônia</a>
         </Link>
 
         <button

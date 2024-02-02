@@ -1,7 +1,6 @@
 body {
   color: #00741f;
   font-weight: 700;
-
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -9,32 +8,65 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Estilo para o texto dentro do botão */
+.btn-custom {
+  background-color: #3498db;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold; /* Adiciona negrito ao texto do botão */
+  text-transform: uppercase; /* Converte o texto para maiúsculas */
+  letter-spacing: 1px; /* Espaçamento entre caracteres */
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 5px;
+  transition: background-color 0.3s ease; /* Adiciona transição suave na cor de fundo */
+}
+
+.btn-custom:hover {
+  background-color: #2980b9;
+}
+
+/* Estilo para os links na barra de navegação */
 .navbar-nav .nav-link {
- 
   text-decoration: none;
-  
-}
-av ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
+  font-size: 14px;
+  font-weight: bold;
+  color: #00741f;
+  transition: color 0.3s ease; /* Adiciona transição suave na cor do texto */
 }
 
-nav li {
-  margin-right: 15px;
+.navbar-nav .nav-link:hover {
+  color: #00471f;
 }
 
+/* Estilo para os links na lista */
 nav a {
   text-decoration: none;
-  color: #333; /* You can set your desired link color */
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease; /* Adiciona transição suave na cor do texto */
 }
 
 nav a:hover {
-  text-decoration: bold;
+  color: #00741f;
 }
 
+/* Estilo para o texto de código */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+  font-size: 14px;
+  color: #d35400; /* Cor para o texto de código */
+}
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 10px; /* Reduz o tamanho da fonte geral */
+  }
+
+  .btn-custom,
+  .navbar-nav .nav-link,
+  nav a {
+    font-size: 12px; /* Reduz o tamanho da fonte para botões, links, etc. */
+  }
 }

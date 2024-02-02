@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import ToastContext from "../context/ToastContext";
 
+
 const AllContact = () => {
   const { toast } = useContext(ToastContext);
 
@@ -36,7 +37,7 @@ const AllContact = () => {
   }, []);
 
   const deleteContact = async (id) => {
-    if (window.confirm("tem certeza que quer deletar esse contato?")) {
+    if (window.confirm("Tem certeza que quer deletar esse contato?")) {
       try {
         const res = await fetch(`https://otica-backend-app.onrender.com/api/delete/${id}`, {
           method: "DELETE",
@@ -80,7 +81,7 @@ const AllContact = () => {
           <Spinner splash="Loading Contacts..." />
         ) : (
           <>
-            {contacts.length == 0 ? (
+            {contacts.length === 0 ? (
               <h3>Sem contatos criados por enquanto</h3>
             ) : (
               <>
@@ -106,7 +107,6 @@ const AllContact = () => {
                   <thead>
                     <tr className="table-dark">
                       <th scope="col">Nome</th>
-                      
                       <th scope="col">Telefone</th>
                     </tr>
                   </thead>
@@ -121,7 +121,6 @@ const AllContact = () => {
                         }}
                       >
                         <th scope="row">{contact.name}</th>
-                        
                         <td>{contact.phone}</td>
                       </tr>
                     ))}

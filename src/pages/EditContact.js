@@ -41,7 +41,7 @@ const EditContact = () => {
     });
     const result = await res.json();
     if (!result.error) {
-      toast.success(`Updated [${userDetails.name}] contact`);
+      toast.success(`Contato [${userDetails.name}] atualizado`);
       setUserDetails({
         name: "",
         address: "",
@@ -93,15 +93,15 @@ const EditContact = () => {
   return (
     <div className="container">
       {loading ? (
-        <Spinner splash="Loading clients..." />
+        <Spinner splash="Carregando clientes..." />
       ) : (
         <>
-          <h2>Edit Contact</h2>
+          <h2>Editar Contato</h2>
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="nameInput" className="form-label">
-                Name
+                Nome
               </label>
               <input
                 type="text"
@@ -116,7 +116,7 @@ const EditContact = () => {
 
             <div className="mb-3">
               <label htmlFor="addressInput" className="form-label">
-                Address
+                Endereço
               </label>
               <input
                 type="text"
@@ -146,7 +146,7 @@ const EditContact = () => {
 
             <div className="mb-3">
               <label htmlFor="phoneInput" className="form-label">
-                Phone
+                Telefone
               </label>
               <input
                 type="number"
@@ -161,7 +161,7 @@ const EditContact = () => {
 
             <div className="mb-3">
               <label htmlFor="dateInput" className="form-label">
-                Purchase Date
+                Data de compra
               </label>
               <input
                 type="date"
@@ -176,7 +176,7 @@ const EditContact = () => {
 
             <div className="mb-3">
               <label htmlFor="cityInput" className="form-label">
-                City
+                Cidade
               </label>
               <input
                 type="text"
@@ -191,7 +191,7 @@ const EditContact = () => {
 
             <div className="mb-3">
               <label htmlFor="priceInput" className="form-label">
-                Price
+                Preço
               </label>
               <input
                 type="number"
@@ -221,7 +221,7 @@ const EditContact = () => {
 
             <div className="mb-3">
               <button type="submit" className="btn btn-info">
-                Save Changes
+                Salvar mudanças
               </button>
             </div>
           </form>
